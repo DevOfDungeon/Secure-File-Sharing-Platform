@@ -17,7 +17,7 @@ def verify_token(token, secret_key):
         return None
 
 if __name__ == "__main__":
-    secret_key = "your_secret_key"
+    secret_key = "icecream"
     user_id = 123
     token = generate_token(user_id, secret_key)
     print(f"Generated Token: {token}")
