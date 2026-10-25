@@ -1,6 +1,5 @@
 from cryptography.hazmat.primitives.asymmetric import rsa, padding
 from cryptography.hazmat.primitives import hashes
-from encryption import encrypt_data
 
 def generate_keys():
 
@@ -29,6 +28,7 @@ def decrypt_aes_key(ct, pvt_key):
 
 
 if __name__ == "__main__":
+    from encryption import encrypt_data
     # Generate keys
     private_key, public_key = generate_keys()
 

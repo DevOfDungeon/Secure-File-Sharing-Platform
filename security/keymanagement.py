@@ -1,5 +1,3 @@
-from rsa import generate_keys, encrypt_aes_key, decrypt_aes_key
-from encryption import encrypt_data
 from cryptography.hazmat.primitives import serialization
 import os
 import base64
@@ -47,8 +45,8 @@ def derive_key_from_password(password: str, salt: bytes) -> bytes:
 def encrypt_private_pem(private_pem: bytes, password: str):
     salt = os.urandom(16)
     key = derive_key_from_password(password, salt)
-    encrypted_pem = Fernet(key).encrypt(private_pem)
-    return encrypted_pem, salt
+    
+    return Fernet(key).encrypt(private_pem), salt
 
 def decrypt_private_pem(encrypted_pem: bytes, password: str, salt: bytes):
     key = derive_key_from_password(password, salt)
